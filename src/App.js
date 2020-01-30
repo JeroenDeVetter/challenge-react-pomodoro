@@ -5,8 +5,8 @@ let timer;
 
 class pomadoro extends React.Component {
 
-    constructor(probs) {
-        super(probs);
+    constructor(prob) {
+        super(prob);
         this.state = {
             defaultHour: 0,
             defaultMin: 20,
@@ -27,7 +27,9 @@ class pomadoro extends React.Component {
             </span>
 
                     <br/>
-                    <button onClick={() => {
+                    {/*put in component */}
+                    <button onClick={() =>
+                        // put these in one function
                         timer = setInterval(() => {
 
                             if (this.state.defaultSec === 0) {
@@ -47,9 +49,8 @@ class pomadoro extends React.Component {
                                     }
                                 }
                             }
-                        }, 1000);
-
-                    }}>
+                        }, 1000)
+                    }>
                         Start
                     </button>
                     <button onClick={() => {
@@ -105,7 +106,7 @@ class pomadoro extends React.Component {
                         }
                         if (this.state.defaultMin === 0) {
                             if (this.state.defaultHour >= 1) {
-                                this.setState({defaultHour: this.state.defaultHour - 1})
+                                this.setState({defaultHour: this.state.defaultHour - 1});
                                 this.setState({defaultMin: 60})
                             }
                         }
@@ -163,7 +164,7 @@ class pomadoro extends React.Component {
                                         this.setState({defaultSec: 59});
                                         this.setState({defaultMin: this.state.defaultMin - 1})
                                     } else {
-                                        this.setState({defaultSec: this.state.defaultSec - 1})
+                                        this.setState({defaultSec: this.state.defaultSec - 1});
                                         if (this.state.defaultSec === 0) {
                                             this.setState({defaultSec: 60});
                                             this.setState({defaultMin: this.state.defaultMin - 1})
